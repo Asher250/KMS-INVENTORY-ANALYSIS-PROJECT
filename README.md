@@ -33,7 +33,7 @@ GROUP BY
 ORDER BY 
     TotalSales DESC;
 ```
-(PRODUCT CATEGORY SALES QUERZ)
+(PRODUCT CATEGORY SALES QUERY)
 
 
 2️⃣ What are the Top 3 and Bottom 3 regions in terms of sales?
@@ -98,7 +98,7 @@ Focused analysis on the retail segment to find the top contributor.
 8️⃣ Which corporate customer placed the most number of orders (2009–2012)?
 Ranked corporate clients by order volume for targeted relationship management.
 
-
+![Screenshot (11)](https://github.com/user-attachments/assets/a6a450c2-fd97-4ce7-8318-bdc18e161ae7)
 
 ```SQL
 SELECT TOP 1
@@ -145,3 +145,5 @@ This repository showcases my individual learning journey and is meant for educat
 *Let’s Connect!*
 
 Feel free to reach out if you’d like to discuss the analysis in detail or collaborate on similar data projects!
+
+ASHER ROBERT
