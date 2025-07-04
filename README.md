@@ -11,6 +11,7 @@ As part of my Data Analysis journey, I was engaged as a Business Intelligence An
 ## 🛠 Objective
 
 The project leverages advanced SQL analysis skills from my DSA Data Analysis training to uncover key insights on sales, profitability, customer segments, and operational efficiency for KMS.
+![Screenshot (9)](https://github.com/user-attachments/assets/014b3290-3ac4-4d56-a2f6-440fe3fe0702)
 
 ### 📄 Case Scenarios & Business Questions Solved
 
@@ -19,14 +20,69 @@ The project leverages advanced SQL analysis skills from my DSA Data Analysis tra
 1️⃣ Which product category had the highest sales?
 Analyzed total sales across all product categories to identify top performers.
 
+![Screenshot (8)](https://github.com/user-attachments/assets/4261a66d-bd76-46fe-a976-6bcb041bf084)
+``` SQL
+
+SELECT 
+   Product_Category,
+    SUM(Sales) AS TotalSales
+FROM 
+   [KMS Sales]
+GROUP BY 
+    Product_Category
+ORDER BY 
+    TotalSales DESC;
+```
+(PRODUCT CATEGORY SALES QUERZ)
+
+
 2️⃣ What are the Top 3 and Bottom 3 regions in terms of sales?
 Ranked regions to highlight strong and weak markets.
+
+```SQL
+
+SELECT TOP 3
+    Region,
+    SUM(Sales) AS TotalSales
+FROM 
+    [KMS Sales]
+GROUP BY 
+    Region
+ORDER BY 
+    TotalSales DESC;
+```
+```SQL
+
+SELECT TOP 3
+    Region,
+    SUM(Sales) AS TotalSales
+FROM 
+    [KMS Sales]
+GROUP BY 
+    Region
+ORDER BY 
+    TotalSales ASC;
+```
 
 3️⃣ What were the total sales of appliances in Ontario?
 Filtered product category and province to get precise sales insights.
 
 4️⃣ Advice to management on increasing revenue from the bottom 10 customers
 Provided actionable strategies to uplift engagement and purchasing among least active customers.
+
+![Screenshot (10)](https://github.com/user-attachments/assets/2aa77885-2f2a-4849-a1c5-dc2e1f5d8bb5)
+``` SQL
+
+SELECT TOP 10
+    Customer_Name,
+    SUM(Sales) AS TotalSales
+FROM 
+    [KMS Sales]
+GROUP BY 
+    Customer_Name
+ORDER BY 
+    TotalSales ASC;
+```
 
 5️⃣ Which shipping method incurred the most shipping cost?
 Analyzed aggregate shipping costs across different shipping modes to optimize logistics spending.
@@ -41,6 +97,25 @@ Focused analysis on the retail segment to find the top contributor.
 
 8️⃣ Which corporate customer placed the most number of orders (2009–2012)?
 Ranked corporate clients by order volume for targeted relationship management.
+
+
+
+```SQL
+SELECT TOP 1
+    Customer_Name,
+    COUNT(DISTINCT Order_ID) AS NumberOfOrders
+FROM 
+    [KMS Sales]
+WHERE 
+    Customer_Segment = 'Corporate'
+    AND Order_Date >= '2009-01-01'
+    AND Order_Date <= '2012-12-31'
+GROUP BY 
+    Customer_Name
+ORDER BY 
+    NumberOfOrders DESC;
+```
+
 
 9️⃣ Which consumer customer was the most profitable?
 Ranked individual consumers by profitability to inform loyalty strategies.
